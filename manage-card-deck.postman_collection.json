@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "f0b25926-f38a-4b79-96ac-ebd46fadf042",
+		"name": "manage-card-deck",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "new deck",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/deck?shuffle=true&cards=AS,KD,AC,2C,KH,10D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deck"
+					],
+					"query": [
+						{
+							"key": "shuffle",
+							"value": "true"
+						},
+						{
+							"key": "cards",
+							"value": "AS,KD,AC,2C,KH,10D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new full deck",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/deck?shuffle=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deck"
+					],
+					"query": [
+						{
+							"key": "shuffle",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "open deck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/deck/open?deck_id=b5061527-5b92-4f88-86c0-0bc6d495b15f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deck",
+						"open"
+					],
+					"query": [
+						{
+							"key": "deck_id",
+							"value": "b5061527-5b92-4f88-86c0-0bc6d495b15f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "draw cards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/deck/draw?deck_id=b5061527-5b92-4f88-86c0-0bc6d495b15f&count=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deck",
+						"draw"
+					],
+					"query": [
+						{
+							"key": "deck_id",
+							"value": "b5061527-5b92-4f88-86c0-0bc6d495b15f"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

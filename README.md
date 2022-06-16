@@ -3,18 +3,8 @@
 This repository provides a module to manage deck of cards via rest endpoints.   
   
 Code is divided into two packages -  
-1. deck - This git clone https://github.com/ketanbodas/manage-card-deck  
-166
-cd manage-card-deck  
-167
-go build  
-168
-go test ./...  
-169
-go run .  
-170
-package contains the types and functions to manage decks
-2. api  - This package contains the [gin](https://github.com/gin-gonic/gin) based http server which provides endpoints to manage deck of cards 
+1. **deck** - This package contains the types and functions to manage decks
+2. **api**  - This package contains the [gin](https://github.com/gin-gonic/gin) based http server which provides endpoints to manage deck of cards 
 
 Test cases are implemented for both the packages are written using [testify](https://github.com/stretchr/testify)
 

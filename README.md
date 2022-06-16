@@ -6,7 +6,7 @@ Code is divided into two packages -
 1. **deck** - This package contains the types and functions to manage decks
 2. **api**  - This package contains the [gin](https://github.com/gin-gonic/gin) based http server which provides endpoints to manage deck of cards 
 
-Test cases are implemented for both the packages are written using [testify](https://github.com/stretchr/testify)
+Test cases (>95% coverage) are written using [testify](https://github.com/stretchr/testify)
 
   
 ### Supported endpoints  

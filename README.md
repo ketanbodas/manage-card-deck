@@ -3,8 +3,8 @@
 This repository provides a module to manage deck of cards via rest endpoints.   
   
 Code is divided into two packages -  
-1. **deck** - This package contains the types and functions to manage decks. This has a exposed struct types for Card and Deck and exposed functions (`CreateNewDeck`) to create new deck, open a deck (`OpenDeck`) and draw cards(`DrawCards`).
-2. **api**  - This package contains the [gin](https://github.com/gin-gonic/gin) based http server which provides endpoints to manage deck of cards. This package has a single exposed function called `StartServer`
+1. **deck** - This package contains the types and functions to manage decks. This has exported struct types for Card and Deck and exported functions to create new deck (`CreateNewDeck`), open a deck (`OpenDeck`) and draw cards (`DrawCards`).
+2. **api**  - This package contains the [gin](https://github.com/gin-gonic/gin) based http server which provides endpoints to manage deck of cards. This package has a single exported function `StartServer` which starts a server on port 3000
 
 Test cases (>95% coverage) are written using [testify](https://github.com/stretchr/testify)
 
@@ -18,6 +18,7 @@ Note: The endpoints can be tested using [postman collection](https://github.com/
 
 #### Create New Deck
 Endpoint: `localhost:3000/deck`  
+Method: POST  
 Query Parameters: 
 1. shuffle - a boolean indicating whether deck should be shuffled or not. Optional, default value is false
 2. cards - comma separated list of card codes. Optional. If not provided all 52 cards would be added to deck
@@ -34,6 +35,7 @@ Invoking `http://localhost:3000/deck?shuffle=true&cards=AS,KD,AC,2C,KH,10D` retu
 
 #### Open Deck
 Endpoint: `localhost:3000/deck/open`  
+Method: GET  
 Query Parameters: 
 1. deck_id - UUID which is returned when new deck is created.  This parameter is mandatory and must represent a valid UUID  
 
@@ -80,6 +82,7 @@ Invoking `http://localhost:3000/deck/open?deck_id=4c0c167a-5ba6-4437-a09d-9dcb77
 
 #### Draw Cards
 Endpoint: `localhost:3000/deck/draw`  
+Method: GET  
 Query Parameters: 
 1. deck_id - UUID which is returned when new deck is created. This parameter is mandatory and must represent a valid UUID  
 2. count - number of cards to be drawn. This parameter is mandatory and must be a positive integer with value not more than number of remaining cards in the deck  

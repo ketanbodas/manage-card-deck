@@ -3,8 +3,8 @@
 This repository provides a module to manage deck of cards via rest endpoints.   
   
 Code is divided into two packages -  
-1. **deck** - This package contains the types and functions to manage decks
-2. **api**  - This package contains the [gin](https://github.com/gin-gonic/gin) based http server which provides endpoints to manage deck of cards 
+1. **deck** - This package contains the types and functions to manage decks. This has a exposed struct types for Card and Deck and exposed functions (`CreateNewDeck`) to create new deck, open a deck (`OpenDeck`) and draw cards(`DrawCards`).
+2. **api**  - This package contains the [gin](https://github.com/gin-gonic/gin) based http server which provides endpoints to manage deck of cards. This package has a single exposed function called `StartServer`
 
 Test cases (>95% coverage) are written using [testify](https://github.com/stretchr/testify)
 
@@ -171,14 +171,14 @@ To summarize, to simply download this and start a server:
 
 #### To use this module in another project as dependency:
 1. run `go get github.com/ketanbodas/manage-card-deck` to get the module
-2. add the package api to the import as `import "github.com/ketanbodas/manage-card-deck/api"`
+2. import the packages (for example`import "github.com/ketanbodas/manage-card-deck/api"`)
 3. run `go mod tidy`
 4. use the package functions in code
 5. run `go build` and verify that there are no errors
 
 
 ### Further improvements:
-1. Decks are not currently persisted. Once server stops, all decks are lost. This can be added by saving the decks to file and loading the file when server starts back
+1. Decks are not currently persisted. Once server stops, all decks are lost. This can be improved by saving the decks to file and loading the file when server starts back
 2. Multithreading is not supported. This can cause problems when hands are drawn simultenously. 
 3. Code can be optimized to use a single instance of cards. Currently, for each new deck, a new set of cards is created.
 4. For now card codes are case sensitive. This can be improved.

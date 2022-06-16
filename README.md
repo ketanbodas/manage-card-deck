@@ -21,7 +21,8 @@ Endpoint: `localhost:3000/deck`
 Method: POST  
 Query Parameters: 
 1. shuffle - a boolean indicating whether deck should be shuffled or not. Optional, default value is false
-2. cards - comma separated list of card codes. Optional. If not provided all 52 cards would be added to deck
+2. cards - comma separated list of card codes. Optional. If not provided all 52 cards would be added to deck  
+Note: having query params for POST should ideally be avoided as its against ReST .
 
 Example:  
 Invoking `http://localhost:3000/deck?shuffle=true&cards=AS,KD,AC,2C,KH,10D` returns a json containing deck details:
@@ -86,6 +87,7 @@ Method: GET
 Query Parameters: 
 1. deck_id - UUID which is returned when new deck is created. This parameter is mandatory and must represent a valid UUID  
 2. count - number of cards to be drawn. This parameter is mandatory and must be a positive integer with value not more than number of remaining cards in the deck  
+Note: I am not sure that GET is right method here, since this call is not idempotent. But at the same time, we are not creating a new resource so POST does not seem right as well. Would PATCH be the right method here ?
 
 Example:  
 Invoking `http://localhost:3000/deck/draw?deck_id=4c0c167a-5ba6-4437-a09d-9dcb7748df44&count=4` returns a json containing a hand:

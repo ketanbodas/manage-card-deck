@@ -14,6 +14,8 @@ Test cases (>95% coverage) are written using [testify](https://github.com/stretc
 2. Open an existing deck of cards
 3. Draw a hand from an existing deck of cards
 
+Note: The endpoints can be tested using [postman collection](https://github.com/ketanbodas/manage-card-deck/blob/main/manage-card-deck.postman_collection.json). 
+
 #### Create New Deck
 Endpoint: `localhost:3000/deck`  
 Query Parameters: 
